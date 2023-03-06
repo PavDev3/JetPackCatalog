@@ -6,10 +6,11 @@ import androidx.activity.compose.setContent
 import androidx.compose.material.*
 import androidx.compose.runtime.*
 import androidx.compose.ui.tooling.preview.Preview
+import androidx.navigation.compose.NavHost
+import androidx.navigation.compose.composable
+import androidx.navigation.compose.rememberNavController
 import com.example.jetpackcatalog.ui.theme.JetPackCatalogTheme
 import com.example.jetpackcatalog.ui.theme.MyRadioButton
-import com.example.jetpackcatalog.ui.theme.MyScaffoldExample
-import com.example.jetpackcatalog.ui.theme.SuperHeroGridView
 
 
 class MainActivity : ComponentActivity() {
@@ -21,8 +22,12 @@ class MainActivity : ComponentActivity() {
                 Surface(
                     color = MaterialTheme.colors.background
                 ) {
-                    MyScaffoldExample()
-
+                    val navigationController = rememberNavController()
+                    NavHost(navController = navigationController, startDestination = "Pantalla 1") {
+                        composable("Pantalla 1"){ Screen1(navigationController)}
+                        composable("Pantalla 2"){ Screen2(navigationController)}
+                        composable("Pantalla 3"){ Screen3(navigationController)}
+                    }
                 }
             }
         }
