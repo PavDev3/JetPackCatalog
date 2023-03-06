@@ -6,9 +6,11 @@ import androidx.activity.compose.setContent
 import androidx.compose.material.*
 import androidx.compose.runtime.*
 import androidx.compose.ui.tooling.preview.Preview
+import androidx.navigation.NavType
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
+import androidx.navigation.navArgument
 import com.example.jetpackcatalog.model.Routes
 import com.example.jetpackcatalog.model.Routes.*
 import com.example.jetpackcatalog.ui.theme.JetPackCatalogTheme
@@ -29,6 +31,8 @@ class MainActivity : ComponentActivity() {
                         composable(Pantalla1.route){ Screen1(navigationController)}
                         composable(Pantalla2.route){ Screen2(navigationController)}
                         composable(Pantalla3.route){ Screen3(navigationController)}
+                        composable("Pantalla4/{name}", arguments = listOf(navArgument("name"){type = NavType.IntType})){ backStackEntry ->
+                            Screen4(navigationController, backStackEntry.arguments?.getInt("name") ?: 0) }
                     }
                 }
             }
