@@ -54,17 +54,17 @@ fun Screen3(navController: NavHostController) {
             text = "Pantalla 3",
             modifier = Modifier
                 .align(Alignment.Center)
-                .clickable { navController.navigate("Pantalla4/4") })
+                .clickable { navController.navigate(Routes.Pantalla4.createRoute(33)) })
     }
 }
 
 @Composable
-fun Screen4(navController: NavHostController, name: Int) {
+fun Screen4(navController: NavHostController, age: Int) {
     Box(
         modifier = Modifier
             .fillMaxSize()
             .background(Color.DarkGray)
     ) {
-        Text(text = name.toString(), modifier = Modifier.align(Alignment.Center))
+        Text(text = "La edad es de $age", modifier = Modifier.align(Alignment.Center))
     }
 }
