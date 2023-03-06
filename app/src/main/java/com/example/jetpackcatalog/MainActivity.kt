@@ -9,6 +9,8 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
+import com.example.jetpackcatalog.model.Routes
+import com.example.jetpackcatalog.model.Routes.*
 import com.example.jetpackcatalog.ui.theme.JetPackCatalogTheme
 import com.example.jetpackcatalog.ui.theme.MyRadioButton
 
@@ -23,10 +25,10 @@ class MainActivity : ComponentActivity() {
                     color = MaterialTheme.colors.background
                 ) {
                     val navigationController = rememberNavController()
-                    NavHost(navController = navigationController, startDestination = "Pantalla 1") {
-                        composable("Pantalla 1"){ Screen1(navigationController)}
-                        composable("Pantalla 2"){ Screen2(navigationController)}
-                        composable("Pantalla 3"){ Screen3(navigationController)}
+                    NavHost(navController = navigationController, startDestination = Pantalla1.route) {
+                        composable(Pantalla1.route){ Screen1(navigationController)}
+                        composable(Pantalla2.route){ Screen2(navigationController)}
+                        composable(Pantalla3.route){ Screen3(navigationController)}
                     }
                 }
             }
