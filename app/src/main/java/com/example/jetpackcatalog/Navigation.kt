@@ -65,6 +65,15 @@ fun Screen4(navController: NavHostController, age: Int) {
             .fillMaxSize()
             .background(Color.DarkGray)
     ) {
-        Text(text = "La edad es de $age", modifier = Modifier.align(Alignment.Center))
+        Text(text = "La edad es de $age", modifier = Modifier.align(Alignment.Center).clickable { navController.navigate(Routes.Pantalla5.createRoute("")) })
+    }
+}@Composable
+fun Screen5(navController: NavHostController, name: String?) {
+    Box(
+        modifier = Modifier
+            .fillMaxSize()
+            .background(Color.Yellow)
+    ) {
+        Text(text = "Nombre: $name", modifier = Modifier.align(Alignment.Center))
     }
 }
